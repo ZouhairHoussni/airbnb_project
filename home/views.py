@@ -1,9 +1,9 @@
 from django.shortcuts import render
 
 country_list = {
-                "France":[],
-                "Belgium":[],
-                "Netherlands":[],
+                "France":["Bordeaux","Lyon","Paris","Pays Basque"],
+                "Belgium":["Antwerp","Brussels","Ghent"],
+                "Netherlands":["Amsterdam","Rotterdam","The Hague"],
                 "Uk":["Bristol","Edinburgh","London","Manchester"],
                 }
 
