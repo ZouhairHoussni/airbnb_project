@@ -1,1 +1,23 @@
-This is a home page
+{% extends 'base.html' %}
+
+{% block content %}
+
+<ul>
+    {% for country,city in country_list.items %}
+       <li><a href=>{{country}}</a></li>
+       <p></p>
+       {% for x in city %}
+       <li><a href=>***{{x}}</a></li>
+    {% endfor %}
+    <p></p>
+    {% endfor %}
+</ul>
+
+
+
+
+{% endblock content %}
+
+
+
+
