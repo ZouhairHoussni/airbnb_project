@@ -4,11 +4,11 @@
 
 <ul>
     {% for country,city in country_list.items %}
-    
-       <li class='country' ><a href=>{{country}}</a></li>
+
+       <li class='country' >{{country}}</li>
        
         {% for x in city %}
-            <li class = 'city'><a href=>***{{x}}</a></li>
+            <li class = 'city'><a href="/result">{{x}}</a></li>
         {% endfor %}
 
     {% endfor %}
