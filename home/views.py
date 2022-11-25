@@ -7,7 +7,17 @@ country_list = {
                 "Netherlands":["Amsterdam","Rotterdam","The Hague"],
                 "Uk":["Bristol","Edinburgh","London","Manchester"],
                 }
-x = "London"
+
+city_dict ={}
+
+
+for i in country_list:
+    for j in country_list[i]:
+        city_dict[j] = j
+
+
+
+
 
 def home_view(request):
     
@@ -16,8 +26,14 @@ def home_view(request):
     return render(request, 'home/home_page.html',context= context)
 
 
-def result_view(request):
 
-    
-    return render(request, 'home/result_page.html')
+def result_view(request,id):
+
+    df = pd.read_csv(f"CSV_files/{id}_listings.csv")
+    df1 = df[["host_id","host_name"]].head(10)
+    R1 = df1.to_html()
+    context = {"article" : city_dict[id],
+                "R1": R1}
+
+    return render(request, 'home/result_page.html',context=context)
     
