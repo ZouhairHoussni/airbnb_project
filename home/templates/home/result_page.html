@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-{{R1|safe}}
-
-
+<h1>Dashboard {{ville}} - {{pays}}</h1>
+<p>Le nombre d'host et des reviews par quartier :</p>
+<table border="1">
+    <tr>
+        <th>
+            <th> Quartiers </th>
+            {% for index in data.1.index%}
+                <td>{{index}}</td>
+            {% endfor %}
+        </th>
+    </tr>
+    {% for elt in data.1.items %}
+    <tr>
+        <th>{{elt.0}}</th>
+            {% for case in  elt.1 %}
+            <td>{{case}}</td>
+            {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
 {% endblock content %}
 
 

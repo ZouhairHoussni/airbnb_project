@@ -1,5 +1,7 @@
 from django.shortcuts import render
 import pandas as pd
+import pickle
+
 
 country_list = {
                 "France":["Bordeaux","Lyon","Paris","Pays Basque"],
@@ -27,13 +29,16 @@ def home_view(request):
 
 
 
-def result_view(request,id):
+def result_view(request, pays, ville):
+    pickle_in = open(f'pickle/{pays}_{ville}.pkl', 'rb')
+    data = pickle.load(pickle_in)
 
-    df = pd.read_csv(f"CSV_files/{id}_listings.csv")
-    df1 = df[["host_id","host_name"]].head(10)
-    R1 = df1.to_html()
-    context = {"article" : city_dict[id],
-                "R1": R1}
+
+    context = {
+        "data" : data,
+        "pays" : pays,
+        "ville" : ville
+        }
 
     return render(request, 'home/result_page.html',context=context)
     
