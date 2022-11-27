@@ -21,6 +21,50 @@
     </tr>
     {% endfor %}
 </table>
+<p>Moyenne de reponse par host : {{data.2.mean_response.0}} %</p>
+<p>Moyenne d'acceptation par host : {{data.2.mean_accept.0}} %</p>
+<p>Pourcentage et type de vérification :</p>
+<ul>
+    <li>Téléphone : {{data.3.phone_verification.0}} %</li>
+    <li>Email : {{data.3.email_verification.0}} %</li>
+    <li>Email professionnel : {{data.3.work_email_verification.0}} %</li>
+</ul>
+
+<p>Nombre moyen d’amenities et l'écart type :</p>
+<p>Nombre moyen d’amenities : {{data.4.mean.0}}</p>
+<p>écart type : {{data.4.std.0}}</p>
+<p>Prix par type de room : </p>
+<table border="1">
+    <tr>
+        <th>
+            <th> Type de room </th>
+            {% for index in data.5.index%}
+                <td>{{index}}</td>
+            {% endfor %}
+        </th>
+    </tr>
+    {% for elt in data.5.items %}
+    <tr>
+        <th>{{elt.0}}</th>
+            {% for case in  elt.1 %}
+            <td>{{case}}</td>
+            {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+<p>Nombre d'annonces par type de salle de bain :</p>
+<table border="1">
+    {% for elt in data.6.items %}
+    <tr>
+        <th>{{elt.0}}</th>
+            {% for case in  elt.1 %}
+            <td>{{case}}</td>
+            {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+<p>Valeur de correlation entre le nombre de reviews et la taille de la description : {{data.7}}</p>
+<p>Faux commentaires : {{data.8}}%</p>
 {% endblock content %}
 
 
