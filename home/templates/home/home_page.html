@@ -5,10 +5,10 @@
 <ul>
     {% for country,city in country_list.items %}
 
-       <li class='country' >{{country}}</li>
+       <li class='country' >{{country.upper}}</li>
        
         {% for x in city %}
-            <li class = 'city'><a href="/result={{x}}">{{x}}</a></li>
+            <li class = 'city'><a href="/result/{{country}}/{{x}}">{{x.upper}}</a></li>
         {% endfor %}
 
     {% endfor %}
