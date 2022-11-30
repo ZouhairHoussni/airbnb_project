@@ -78,7 +78,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "air.urls"
+ROOT_URLCONF = "airbnb.urls"
 
 TEMPLATES = [
     {
