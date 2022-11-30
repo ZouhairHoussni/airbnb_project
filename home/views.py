@@ -2,6 +2,7 @@ from django.shortcuts import render
 import pickle
 
 def home_view(request):
+    
     country_list = {
         "france":["bordeaux","lyon","paris","pays_Basque"],
         "belgique":["antwerp","brussels","ghent"],
